@@ -1,0 +1,1 @@
+delete from  project_subscription where sub_id = $1;
