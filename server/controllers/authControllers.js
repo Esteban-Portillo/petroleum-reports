@@ -23,7 +23,7 @@ module.exports = {
             return res.status(200).send(req.session.user)
 
         }catch(err){
-             console.log(err)
+             (err)
         }
 
         // return res.status(200).send(user)

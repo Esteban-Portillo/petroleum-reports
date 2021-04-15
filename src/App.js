@@ -1,10 +1,10 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import routes from './routes'
 
-function App() {
+function App(props) {
   return (
-    <div className="App">
-      this is my project madfcker 
+    <div>
+      {routes}
     </div>
   );
 }
