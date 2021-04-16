@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import HomeProject from '../projects/HomeProjects'
 import Nav from './Nav'
 import projectsRoutes from '../../projectsRoutes'
 

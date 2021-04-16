@@ -5,9 +5,8 @@ class Nav extends Component {
     render() {
         return (
             <div>
-                <Link><div>Home</div></Link>
-                <Link><div>Projects</div></Link>
-                <Link><div>Create Report</div></Link>
+                <Link to = '/home'><div>Projects</div></Link>
+                <Link to = '/home/create_report'><div>Create Report</div></Link>
             </div>
         );
     }

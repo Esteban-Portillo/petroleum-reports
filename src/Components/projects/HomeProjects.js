@@ -19,9 +19,9 @@ class homeProjects extends Component {
 
     render() {
         console.log(this.state.projects[0])
-        const projectMapped = this.state.projects.map(e => {
+        const projectMapped = this.state.projects.map( ( e, i ) => {
             return (
-                <div>
+                <div key = {i} >
                     <div>{e.city}</div>
                     <div>{e.country}</div>
                     <div>{e.project_admin}</div>
