@@ -6,6 +6,7 @@ const authCtrl = require('./controllers/authControllers')
 const projectCtrl = require('./controllers/projectController')
 const reportCtrl = require ('./controllers/reportControllers')
 const subsCtrl = require('./controllers/subscriptionController')
+const thankCtrl = require( './controllers/thank_contoller' )
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 const app = express()
@@ -52,6 +53,7 @@ app.get('/get/project/:userId', subsCtrl.getProjectsByUser)
 
 //thank controllers 
 
+app.post('/thank/create', thankCtrl.createThank )
 
 
 

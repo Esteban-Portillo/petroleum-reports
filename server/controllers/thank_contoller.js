@@ -13,7 +13,10 @@ module.exports = {
             station } = req.body
 
         const db = req.app.get('db')
-        const thank = db.thanks.create_thank(diameter,max_stress_allowed,
+        const thank = await db.thanks.create_thank(
+            height,
+            diameter,
+            max_stress_allowed,
             join_efficiency,
             minimun_thickness_measured,
             especific_gravity,
@@ -22,8 +25,8 @@ module.exports = {
             country,
             city,
             station)
-
-        return res.status(200).send(thanks)
+        console.log(thank)
+        return res.status(200).send(thank)
     }
 
 }
