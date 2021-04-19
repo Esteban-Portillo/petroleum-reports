@@ -45,13 +45,14 @@ module.exports = {
 
         req.session.user = user
         delete req.session.user.hash
+        // console.log(req.session.user)
 
 
         return res.status(200).send(req.session.user)
     },
     loguot: ( req, res ) => {
         req.session.user = null
-        console.log(req.session)
+        // console.log(req.session)
         return res.sendStatus(200)
     }
 }

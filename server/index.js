@@ -33,6 +33,7 @@ app.post('/project/create', projectCtrl.createProject)
 app.get( '/project/get/all' ,projectCtrl.getProjects)
 app.get( '/project/get/individual/projects',projectCtrl.getUserProjects )
 app.get('/project/get/project', projectCtrl.getProject)
+app.get( '/project/get/byid/:projectId',projectCtrl.getProjectId)
 app.put('/project/update/:projectId', projectCtrl.updateProject)
 app.delete('/project/delete/:projectId', projectCtrl.deleteProject)
 

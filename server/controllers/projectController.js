@@ -52,6 +52,13 @@ module.exports = {
         const {projectId} = req.params 
         await db.projects.delete_project(projectId)
         return res.sendStatus(200)
+    },
+    getProjectId : async ( req, res ) => {
+        const db = req.app.get('db')
+        const {projectId} = req.params
+        const project = await db.projects.get_project_id(projectId)
+
+        return res.status(200).send(project)
     }
 
 }
