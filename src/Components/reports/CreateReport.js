@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+
+import ReactDOM from 'react-dom';
+import { PDFViewer } from '@react-pdf/renderer';
+import ReportPdf from './ReportPdf'
 import axios from 'axios'
 
 class CreateReport extends Component {
@@ -114,8 +118,10 @@ class CreateReport extends Component {
 
         let minimunThicknesRequire = ((2.6 * ( height ) * diameter * especific_gravity)/(max_stress_allowed * join_efficiency))*25.4;
         let maxThankHeight = ( ( minimun_thickness_measured * max_stress_allowed * join_efficiency ) / ( 25.4 * 2.6 * diameter * especific_gravity ) )
-        console.log(minimunThicknesRequire)
-        console.log(this.state)
+        // console.log(minimunThicknesRequire)
+        // console.log(this.state)
+
+        
 
         return (
             <div>
@@ -179,9 +185,13 @@ class CreateReport extends Component {
                     </div>
                 </div>
 
+                <PDFViewer>
+                    <ReportPdf />
+                </PDFViewer>
             </div>
         );
     }
 }
 
 export default CreateReport;
+{ReactDOM.render(<CreateReport />, document.getElementById('root'))}
