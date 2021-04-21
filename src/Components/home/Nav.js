@@ -21,6 +21,7 @@ class Nav extends Component {
                 <Link to = '/'><div onClick = { () => this.handleClick() } >Log Out</div></Link>
                 <Link to = '/home/create_project'> <div>New Project</div> </Link>
                 <Link to = '/home/subscription' ><div>Subscribe to a project</div></Link>
+                <Link to = '/home/problem'><div>Report Problem</div></Link>
             </div>
         );
     }

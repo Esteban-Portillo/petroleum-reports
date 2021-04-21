@@ -8,8 +8,12 @@ const reportCtrl = require ('./controllers/reportControllers')
 const subsCtrl = require('./controllers/subscriptionController')
 const thankCtrl = require( './controllers/thank_contoller' )
 const commentCtrl = require ('./controllers/commentsController')
+const emailCtrl = require ('./controllers/email_controller')
+const twilioCtrl = require ('./controllers/twilio_controller')
+const nodemailer = require ('nodemailer')
 
-const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
+
+const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET, EMAIL, PASSWORD } = process.env
 const app = express()
 
 app.use(express.json())
@@ -66,6 +70,18 @@ app.put('/comment/update', commentCtrl.updateComment)
 app.delete('/comment/delete/:comment_id',commentCtrl.deleteComment)
 
 
+// mails 
+
+app.get('/email/names/:comment_id', emailCtrl.namesEmails)
+app.get('/comment/:comment_id', emailCtrl.comment) 
+
+// nodemailer 
+
+app.post('/send-email', emailCtrl.sendMail  )
+
+//twilio
+
+app.post('/api/sendSMS', twilioCtrl.sendSMS)
 
 
 massive({

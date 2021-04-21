@@ -19,7 +19,9 @@ function NewComment(props) {
                 user_id: userState.user_id, 
                 comment_text: text , 
                 comment_date: new Date()
-            }).then( res => props.updateFx())
+            }).then( res => {
+                props.updateFx()
+            })
         }
     }
 

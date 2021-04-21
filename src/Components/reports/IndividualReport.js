@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { PDFViewer } from '@react-pdf/renderer';
 import ReportPdf from './ReportPdf'
 import { Link } from 'react-router-dom'
+import ReactPDF from '@react-pdf/renderer';
 import axios from 'axios'
 import NewComment from '../comments/NewComment'
 
@@ -43,7 +44,9 @@ class IndividualReport extends Component {
         .then( res => window.location.reload(false) )
     }
     
-    
+    donwloadClick =() => {
+        // ReactPDF.render(<ReportPdf />, `${__dirname}/example.pdf`);
+    }
     
     
     render() {
@@ -64,6 +67,7 @@ class IndividualReport extends Component {
                     <div>Name: {e.name}</div>
                     <Link to = {`/home/comment/update/${e.comment_id}/${e.comment_text}/${this.state.report_id}`}><div>update</div></Link>
                     <button onClick = { () => this.deleteClick(e.comment_id) } >Delete</button>
+                    <Link to = {`/home/email/${e.comment_id}/${e.name}`} ><div>Send as an email</div></Link>
 
 
                 </div>
@@ -78,6 +82,7 @@ class IndividualReport extends Component {
                <PDFViewer>
                     <ReportPdf report_id ={this.state.report_id} />
                 </PDFViewer> 
+                <button onClick = {()=> this.donwloadClick()} >Download Pdf</button>
                 <NewComment report_id = {this.state.report_id} 
                 updateFx = {this.updateFx} />
                 {mappedComment}

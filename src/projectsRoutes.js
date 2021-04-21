@@ -7,6 +7,8 @@ import Reports from './Components/reports/Reports'
 import IndividualReport from './Components/reports/IndividualReport'
 import UpdateComment from './Components/comments/UpdateComment'
 import Subscription from './Components/subscription/Subscription'
+import SendEmail from './Components/comments/SendEmail'
+import ReportProblem from './Components/report_problem/ReportProblem'
 import { Switch, Route } from 'react-router-dom';
 
 
@@ -21,5 +23,7 @@ export default (
         <Route path = '/home/individual/:report_id' component = {IndividualReport}  />
         <Route path = '/home/comment/update/:comment_id/:text/:report_id' component = {UpdateComment} />
         <Route path = '/home/subscription' component = {Subscription} />
+        <Route path = '/home/email/:comment_id/:name' component = {SendEmail}/>
+        <Route  path = '/home/problem' component = {ReportProblem} />
     </Switch>
 )
