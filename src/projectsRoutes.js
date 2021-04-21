@@ -6,6 +6,7 @@ import UpdateProject from './Components/projects/UpdateProject'
 import Reports from './Components/reports/Reports'
 import IndividualReport from './Components/reports/IndividualReport'
 import UpdateComment from './Components/comments/UpdateComment'
+import Subscription from './Components/subscription/Subscription'
 import { Switch, Route } from 'react-router-dom';
 
 
@@ -19,5 +20,6 @@ export default (
         <Route path = '/home/reports/:project_id'  component = {Reports} />
         <Route path = '/home/individual/:report_id' component = {IndividualReport}  />
         <Route path = '/home/comment/update/:comment_id/:text/:report_id' component = {UpdateComment} />
+        <Route path = '/home/subscription' component = {Subscription} />
     </Switch>
 )

@@ -25,6 +25,7 @@ module.exports = {
         // console.log(id)
         const db = req.app.get('db')
         const projects = await db.projects.get_user_projects(user_id)
+        console.log(user_id)
         return res.status(202).send(projects)
     },
     getProject: async ( req, res ) =>{
