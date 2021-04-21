@@ -7,6 +7,7 @@ const projectCtrl = require('./controllers/projectController')
 const reportCtrl = require ('./controllers/reportControllers')
 const subsCtrl = require('./controllers/subscriptionController')
 const thankCtrl = require( './controllers/thank_contoller' )
+const commentCtrl = require ('./controllers/commentsController')
 
 const { SERVER_PORT, CONNECTION_STRING, SESSION_SECRET } = process.env
 const app = express()
@@ -55,6 +56,14 @@ app.get('/get/project/:userId', subsCtrl.getProjectsByUser)
 //thank controllers 
 
 app.post('/thank/create', thankCtrl.createThank )
+app.get( '/thank/get/:report_id', thankCtrl.getThank )
+
+//commment controllers
+
+app.post('/comment/create', commentCtrl.createComment)
+app.get('/comment/get/:report_id', commentCtrl.getComments)
+app.put('/comment/update', commentCtrl.updateComment)
+app.delete('/comment/delete/:comment_id',commentCtrl.deleteComment)
 
 
 

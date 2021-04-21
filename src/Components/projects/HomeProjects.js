@@ -32,12 +32,12 @@ class homeProjects extends Component {
                 <div key = {i} >
                     <Link to = {`/home/reports/${e.project_id}`}>
                         <div>
-                            <div>{e.city}</div>
-                            <div>{e.country}</div>
-                            <div>{e.project_admin}</div>
-                            <div>{e.project_id}</div>
-                            <div>{e.project_name}</div>
-                            <div>{e.station}</div>
+                            <div>City: {e.city}</div>
+                            <div>Country: {e.country}</div>
+                            <div>Project Admin: {e.project_admin}</div>
+                            <div>Project Id: {e.project_id}</div>
+                            <div>Project Name: {e.project_name}</div>
+                            <div>Station: {e.station}</div>
                         </div>
                     </Link>
                     <button onClick =  {()=> this.deleteClick (e.project_id)} >Delete</button>

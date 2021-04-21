@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { logout } from '../../redux/userReducer'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
@@ -8,7 +10,7 @@ class Nav extends Component {
 
 
     handleClick  = () => {
-        axios.get('/auth/logout')
+        axios.get('/auth/logout').then( (res ) => this.props.logout() )
              
     }
     render() {
@@ -23,4 +25,4 @@ class Nav extends Component {
     }
 }
 
-export default Nav;
+export default  connect(null,{logout})  (Nav);

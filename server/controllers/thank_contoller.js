@@ -27,6 +27,13 @@ module.exports = {
             station)
         console.log(thank)
         return res.status(200).send(thank)
+    },
+    
+    getThank: async (req, res) => {
+        const db = req.app.get('db')
+        const {report_id} = req.params
+        const [thank] = await db.thanks.get_thank(report_id)
+        return res.status(200).send(thank)
     }
 
 }

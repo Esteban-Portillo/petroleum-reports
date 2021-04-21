@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 
-import ReactDOM from 'react-dom';
-import { PDFViewer } from '@react-pdf/renderer';
-import ReportPdf from './ReportPdf'
+
 import axios from 'axios'
 
 class CreateReport extends Component {
@@ -89,23 +87,26 @@ class CreateReport extends Component {
             projectId: this.state.projectId,
             reportObservation: this.state.reportObservation 
         }).then ( res => {
-                this.setState({ reportId : res.data.reportId })
+                this.setState({ reportId : res.data[0].report_id }, () => {
+                    axios.post('/thank/create',{
+                        height: this.state.height,
+                        diameter:this.state.diameter,
+                        max_stress_allowed: this.state.max_stress_allowed,
+                        join_efficiency: this.state.join_efficiency,
+                        minimun_thickness_measured: this.state.minimun_thickness_measured,
+                        especific_gravity: this.state.especific_gravity,
+                        thank_name: this.state.thank_name,
+                        report_id: this.state.reportId,
+                        country: this.state.country,
+                        city: this.state.city ,
+                        station: this.state.station
+                    })
+                } )
+                console.log(res.data[0].report_id)
                 //here we will create our thank this will be necessaty to later update the thank or the report 
                 // i am nesting it becousr i first need the report id to then create the thank connected with the report 
                 
-                axios.post('/thank/create',{
-                    height: this.state.height,
-                    diameter:this.state.diameter,
-                    max_stress_allowed: this.state.max_stress_allowed,
-                    join_efficiency: this.state.join_efficiency,
-                    minimun_thickness_measured: this.state.minimun_thickness_measured,
-                    especific_gravity: this.state.especific_gravity,
-                    thank_name: this.state.thank_name,
-                    report_id: this.state.reportId,
-                    country: this.state.country,
-                    city: this.state.city ,
-                    station: this.state.station
-                }).then(response => console.log(response.data))
+                
             } )
     }
     
@@ -185,13 +186,10 @@ class CreateReport extends Component {
                     </div>
                 </div>
 
-                <PDFViewer>
-                    <ReportPdf />
-                </PDFViewer>
+               
             </div>
         );
     }
 }
 
 export default CreateReport;
-{ReactDOM.render(<CreateReport />, document.getElementById('root'))}
