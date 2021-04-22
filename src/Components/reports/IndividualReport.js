@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import { PDFViewer } from '@react-pdf/renderer';
 import ReportPdf from './ReportPdf'
 import { Link } from 'react-router-dom'
-import ReactPDF from '@react-pdf/renderer';
+
 import axios from 'axios'
+import { connect } from 'react-redux';
 import NewComment from '../comments/NewComment'
 
 
@@ -52,7 +53,7 @@ class IndividualReport extends Component {
     render() {
         // console.log(this.state.comments)
         // console.log(this.props)
-
+        console.log(this.props)
         if (!this.state.comments){
             return (
                 <div> Waiting for your Info </div>
@@ -66,7 +67,7 @@ class IndividualReport extends Component {
                     <div>Comment: {e.comment_text}</div>
                     <div>Name: {e.name}</div>
                     <Link to = {`/home/comment/update/${e.comment_id}/${e.comment_text}/${this.state.report_id}`}><div>update</div></Link>
-                    <button onClick = { () => this.deleteClick(e.comment_id) } >Delete</button>
+                    {this.props.userReducer.name === e.name ? <button onClick = { () => this.deleteClick(e.comment_id) } >Delete</button> : <div></div>}
                     <Link to = {`/home/email/${e.comment_id}/${e.name}`} ><div>Send as an email</div></Link>
 
 
@@ -96,5 +97,9 @@ class IndividualReport extends Component {
     }
 }
 
-export default IndividualReport;
+const mapStateToProps = reduxState => {
+    return reduxState
+}
+
+export default  connect(mapStateToProps)   (IndividualReport);
 

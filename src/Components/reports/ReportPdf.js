@@ -6,7 +6,7 @@ import { Page, Text, View, Document, StyleSheet } from '@react-pdf/renderer';
 
 const styles = StyleSheet.create({
     page: {
-      flexDirection: 'row',
+      flexDirection: 'column',
       backgroundColor: '#E4E4E4'
     },
     section: {

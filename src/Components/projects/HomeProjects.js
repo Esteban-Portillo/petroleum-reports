@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 class homeProjects extends Component {
     constructor(props){
@@ -26,6 +27,7 @@ class homeProjects extends Component {
 
 
     render() {
+        console.log(this.props)
         // console.log(this.state.projects[0])
         const projectMapped = this.state.projects.map( ( e, i ) => {
             return (
@@ -40,7 +42,7 @@ class homeProjects extends Component {
                             <div>Station: {e.station}</div>
                         </div>
                     </Link>
-                    <button onClick =  {()=> this.deleteClick (e.project_id)} >Delete</button>
+                    {this.props.userReducer.name === e.project_admin ? <button onClick =  {()=> this.deleteClick (e.project_id)} >Delete</button> :<div></div>}
                     <Link to = {`/home/update_project/${e.project_id}`} ><button>Update</button></Link>
                 </div>
                 
@@ -56,4 +58,9 @@ class homeProjects extends Component {
     }
 }
 
-export default homeProjects;
+const mapStateToProps = reduxState => {
+    return reduxState
+}
+
+
+export default connect(mapStateToProps)(homeProjects);
