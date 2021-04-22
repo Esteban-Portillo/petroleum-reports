@@ -53,7 +53,7 @@ class IndividualReport extends Component {
     render() {
         // console.log(this.state.comments)
         // console.log(this.props)
-        console.log(this.props)
+        // console.log(this.props)
         if (!this.state.comments){
             return (
                 <div> Waiting for your Info </div>
