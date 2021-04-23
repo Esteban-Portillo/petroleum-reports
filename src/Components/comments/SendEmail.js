@@ -1,6 +1,7 @@
 import React from 'react';
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import Gear from '../animation/Gear'
 
 function SendEmail(props) {
 
@@ -42,7 +43,7 @@ function SendEmail(props) {
 
 
     if(!commentInfo[0]){
-        return <div>waiting for your info</div>
+        return <div><Gear/></div>
     }
 
     // console.log(commentInfo)

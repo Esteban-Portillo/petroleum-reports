@@ -3,8 +3,7 @@ import { connect } from 'react-redux';
 import { logout } from '../../redux/userReducer'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+
 
 
 class Nav extends Component {
@@ -18,7 +17,7 @@ class Nav extends Component {
     render() {
         return (
             <div className = 'nav'>
-                <Link to = '/home'><button>Projects</button><FontAwesomeIcon icon = {faCoffee} color = {'black'}/></Link>
+                <Link to = '/home'><button>Projects</button></Link>
                 <Link to = '/home/create_project'> <button>Create Project</button> </Link>
                 <Link to = '/home/subscription' ><button>Subscribe to a project</button></Link>
                 <Link to = '/home/create_report'><button>Create Report</button></Link>

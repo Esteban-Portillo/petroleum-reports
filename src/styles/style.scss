@@ -384,3 +384,21 @@ transform-box: fill-box;
         height: fit-content;
     }
 }
+
+.register{
+    @include fullScreeFlex;
+    input{
+        @include input;
+        margin: 20px
+    }
+    button{
+        @include button;
+        margin: 20px;
+    }
+    form{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

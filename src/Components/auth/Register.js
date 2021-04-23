@@ -62,7 +62,7 @@ class Register extends Component {
 
     render() {
         return (
-            <div>
+            <div className = 'register' >
                 <form>
                
                     <input placeholder = 'Name' onChange = {e => this.handlechangeName(e.target.value)}/>   
