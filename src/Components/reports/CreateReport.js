@@ -125,7 +125,7 @@ class CreateReport extends Component {
         
 
         return (
-            <div>
+            <div className = 'createReport' >
                 <form>
                     <input placeholder = 'Report Name' 
                     onChange = { e => this.handleChangeName(e.target.value) }
@@ -136,10 +136,6 @@ class CreateReport extends Component {
                     <input placeholder = 'Report Observation' 
                     onChange = { e => this.handleChangeObservation(e.target.value) }
                     ></input>
-                    <button onClick = { () => this.createReport() } >Create Report</button>
-                    
-                </form>
-                <form>
                     <input placeholder = 'Heigth (ft)' 
                      onChange = { e => this.handleChangeHeigth(e.target.value) }
                     ></input>
@@ -170,8 +166,11 @@ class CreateReport extends Component {
                     <input placeholder = 'Station' 
                      onChange = { e => this.handleChangeStation(e.target.value) }
                     ></input>
+                    
                 </form>
-                <div>
+                
+                <button onClick = { () => this.createReport() } >Create Report</button>
+                <div className = 'results'>
                     <div>
                         <p>Minimun Thicness Require</p>
                         <p>{minimunThicknesRequire}</p>

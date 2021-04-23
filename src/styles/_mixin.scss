@@ -1,0 +1,101 @@
+
+
+
+* {
+    box-sizing: border-box;
+}
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+@mixin button{
+    
+    background-color: transparent;
+    border: solid black;
+    height: 40px;
+    width: 80px;
+    color: black;
+    text-align: center;
+    font-weight: bolder;
+    border-radius: 3px;
+    width: fit-content;
+    height: fit-content;
+    padding: 20px;
+    &:hover{
+        background-color: black;
+        color:white
+    }
+}
+@mixin input{
+    border: transparent;
+    border-bottom: solid gray 1px;
+    height: 30px;
+    padding: 5px;
+        &:hover{
+        border-left: solid gray 1px;
+    }
+    
+}
+@mixin press {
+    background-color: black;
+    color: white;
+    font-size: 70px;
+    height: 100%;
+    width: 80px;
+    text-align: center;
+    &:hover{
+        background-color: white;
+        color: black;
+        border-right:solid black;
+    }
+    }
+
+@mixin card {
+    all:unset;
+       
+        border: solid black;
+        margin: 30px;
+        display: flex;
+        flex-direction: row;
+        width: 40vw;
+    
+}
+
+@mixin completeCard {
+    @include flexCenter();
+    flex-wrap: wrap;
+    flex-direction: row;
+
+    .card{
+        @include card();
+
+        .press{
+            @include press();
+        }
+        .info{
+            margin: 30px ;
+            div{
+                border-bottom: solid gray;
+                margin: 10px;
+            }
+        }
+        .buttons{
+            @include flexCenter();
+            flex-direction: column;
+            button {
+                @include button();
+                margin: 10px;
+            }
+        }
+    }
+
+}
+
+@mixin fullScreeFlex {
+    @include flexCenter();
+    height: 80vh;
+    flex-direction: column;
+}

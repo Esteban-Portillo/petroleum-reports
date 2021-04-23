@@ -44,7 +44,7 @@ class NewProject extends Component {
             console.log(res.data[0])
             axios.post('/sub/create', {projectId: res.data[0].project_id , userId : this.props.userReducer.user_id})
             .then(response => {
-                this.setState({projectStatus: 'This project is created'})
+                this.setState({projectStatus: 'Your new project is now save'})
                 
             })
         })
@@ -54,8 +54,8 @@ class NewProject extends Component {
     render() {
         console.log(this.props)
         return (
-            <div>
-                <div>
+            <div className = 'createProject' >
+                <form>
                     <input placeholder = 'Project Name' 
                     onChange = {e => this.handleChangeProjectName(e.target.value)}
                     />
@@ -68,11 +68,12 @@ class NewProject extends Component {
                     <input placeholder = 'Station' 
                     onChange = {e => this.handleChangeStation(e.target.value)}
                     />
-                </div>
+                </form>
 
-                <div>
-                    <button onClick= { () => this.createProjectClick() } >Cretate New Project</button>
-                </div>
+                
+                <button onClick= { () => this.createProjectClick() } >create 
+                </button>
+                
                 <div>
                     {this.state.projectStatus}
                 </div>

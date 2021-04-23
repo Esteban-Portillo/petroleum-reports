@@ -47,14 +47,14 @@ function SendEmail(props) {
 
     // console.log(commentInfo)
     return (
-        <div>
-            this is where we send emails 
+        <div className = 'email'>
+            <h2>Fill the information</h2>
 
             <div>From : {props.match.params.name}</div>
             <div>Comment: {commentInfo[0].comment_text}</div>
-            <label>Write sometinh new </label>
+            <label>Message: </label>
             <input onChange = {(e) => setNewComment(e.target.value)  }/>
-            <label>Subject of the email</label>
+            <label>Subject:</label>
             <input onChange = { (e) => setSubject(e.target.value) } />
             <button onClick = { () => sendClick() } >Send email</button>
         </div>

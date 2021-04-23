@@ -15,7 +15,7 @@ function ReportProblem(props) {
     }
 
     return (
-        <div>
+        <div className = 'problem'>
             <label>Write the problem</label>
             <input onChange = {(e)=> setText (e.target.value)} />
             <button onClick = { () => problemClick() } >Send Problem </button>

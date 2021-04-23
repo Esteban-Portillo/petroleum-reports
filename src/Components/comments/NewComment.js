@@ -29,7 +29,7 @@ function NewComment(props) {
     
 
     return (
-        <div>
+        <div className = 'newComment'>
             <input onChange = {(e) => setText (e.target.value)} placeholder = 'Write your comment'></input>
             <button onClick = { postClick} >Post</button>
             {/* {console.log(text)} */}

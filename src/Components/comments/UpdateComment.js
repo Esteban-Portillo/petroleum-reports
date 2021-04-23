@@ -18,13 +18,15 @@ function UpdateComment(props) {
     // console.log(props)
 
     return (
-        <div>
-            this is where i want to update 
+        <div className = "updateComment">
+            <h2>Update your comment</h2>
             <input type = 'text' placeholder = {props.match.params.text}
             onChange = {(e)=> setNewText(e.target.value)}
             />
-            <button onClick = {() => updateClick()} >Update</button>
-            <Link to = {`/home/individual/${+props.match.params.report_id}`}><div>Cancel</div></Link>
+            <div>
+                <button onClick = {() => updateClick()} >Update</button>
+                <Link to = {`/home/individual/${+props.match.params.report_id}`}><button>Cancel</button></Link>
+            </div>
         </div>
     );
 }

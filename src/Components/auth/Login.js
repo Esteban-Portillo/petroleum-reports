@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { login } from '../../redux/userReducer'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
+import gears from '../../images/gears.png'
 
 class Login extends Component {
 
@@ -43,7 +44,8 @@ class Login extends Component {
         // console.log(this.props)
 
         return (
-            <div>
+            <div className = 'login'>
+                
                 <form>
                     <input placeholder = 'E-mail' onChange = {e => this.handleChangeEmail(e.target.value)} />
                     <input placeholder = 'Password' type = 'password' 
@@ -54,6 +56,7 @@ class Login extends Component {
                     <button onClick = { () => this.loginClick() } >Log In</button>
                     <Link to = '/register'><button>Register</button></Link>
                 </div>
+                <h1>Petroleum Reports</h1>
             </div>
         );
     }

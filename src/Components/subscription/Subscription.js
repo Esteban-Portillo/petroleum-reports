@@ -20,7 +20,7 @@ function Subscription(props) {
     }
     console.log(userState)
     return (
-        <div>
+        <div className = 'subscription'>
             <label>Intruduce the Project Id</label>
             <input onChange = { (e) => setProject_id(e.target.value) }/>
             <button onClick = {()=> subscriptionClick()} >Subscribe</button>

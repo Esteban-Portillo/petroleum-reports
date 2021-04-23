@@ -45,9 +45,7 @@ class IndividualReport extends Component {
         .then( res => window.location.reload(false) )
     }
     
-    donwloadClick =() => {
-        // ReactPDF.render(<ReportPdf />, `${__dirname}/example.pdf`);
-    }
+
     
     
     render() {
@@ -60,15 +58,22 @@ class IndividualReport extends Component {
             )
         }
 
+      
+
         const mappedComment = this.state.comments.map( (e,i) => {
             return (
-                <div key = {i} >
-                    <div>Date: {e.comment_date}</div>
+                <div key = {i} className =  {this.props.userReducer.name === e.name ? 'myComment': 'individualComment' }  >
+                    <div className = 'rigthText'>Date: {e.comment_date}</div>
                     <div>Comment: {e.comment_text}</div>
-                    <div>Name: {e.name}</div>
-                    <Link to = {`/home/comment/update/${e.comment_id}/${e.comment_text}/${this.state.report_id}`}><div>update</div></Link>
-                    {this.props.userReducer.name === e.name ? <button onClick = { () => this.deleteClick(e.comment_id) } >Delete</button> : <div></div>}
-                    <Link to = {`/home/email/${e.comment_id}/${e.name}`} ><div>Send as an email</div></Link>
+                    <div className = 'rigthText' >Name: {e.name}</div>
+                    
+                    {this.props.userReducer.name === e.name ? <div>
+                        <button onClick = { () => this.deleteClick(e.comment_id) } >Delete</button>
+                        <Link to = {`/home/email/${e.comment_id}/${e.name}`} ><button>Send as an email</button></Link>
+                        <Link to = {`/home/comment/update/${e.comment_id}/${e.comment_text}/${this.state.report_id}`}><button>update</button></Link>
+                     </div> : null}
+
+                   
 
 
                 </div>
@@ -78,19 +83,25 @@ class IndividualReport extends Component {
 
 
         return (
-            <div>
-               this is the individual report 
-               <PDFViewer>
-                    <ReportPdf report_id ={this.state.report_id} />
-                </PDFViewer> 
-                <button onClick = {()=> this.donwloadClick()} >Download Pdf</button>
+            <div className = 'individualReport'  >
+
+                {/* report part this must be in the left */}
+               <div className = 'reportPdf' >
+                    
+                    <h2>Report</h2>
+                    <p>Rith Click and Print</p>
+                    <PDFViewer>
+                        <ReportPdf report_id ={this.state.report_id} />
+                    </PDFViewer> 
+               </div>
+
+                {/* this is the comment sectin this goest to the rigth  */}
+                <div className = 'comments'>
+              
                 <NewComment report_id = {this.state.report_id} 
                 updateFx = {this.updateFx} />
-                {mappedComment}
-                
-
-                
-
+                    {mappedComment}
+                </div>
 
             </div>
         );
